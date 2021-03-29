@@ -85,20 +85,20 @@ app.get('/webhook', (req, res) => {
     }
 });
 
-// Handles messages events
+// Lida com eventos de mensagens
 function handleMessage(senderPsid, receivedMessage) {
   let response;
 
-  // Checks if the message contains text
+  // Verifica se a mensagem contém texto
   if (receivedMessage.text) {
-    // Create the payload for a basic text message, which
-    // will be added to the body of your request to the Send API
+    // Crie a carga útil para uma mensagem de texto básica, que
+     // será adicionado ao corpo da sua solicitação para a API de envio
     response = {
       'text': `You sent the message: '${receivedMessage.text}'. Now send me an attachment!`
     };
   } else if (receivedMessage.attachments) {
 
-    // Get the URL of the message attachment
+    // Obtenha o URL do anexo da mensagem
     let attachmentUrl = receivedMessage.attachments[0].payload.url;
     response = {
       'attachment': {
@@ -127,34 +127,34 @@ function handleMessage(senderPsid, receivedMessage) {
     };
   }
 
-  // Send the response message
+  // Envie a mensagem de resposta
   callSendAPI(senderPsid, response);
 }
 
-// Handles messaging_postbacks events
+// Lida com eventos messaging_postbacks
 function handlePostback(senderPsid, receivedPostback) {
   let response;
 
-  // Get the payload for the postback
+  // Obtenha a carga útil para o postback
   let payload = receivedPostback.payload;
 
-  // Set the response based on the postback payload
+  // Defina a resposta com base na carga útil de postback
   if (payload === 'yes') {
     response = { 'text': 'Thanks!' };
   } else if (payload === 'no') {
     response = { 'text': 'Oops, try sending another image.' };
   }
-  // Send the message to acknowledge the postback
+  // Envie a mensagem para reconhecer o postback
   callSendAPI(senderPsid, response);
 }
 
-// Sends response messages via the Send API
+// Envia mensagens de resposta por meio da API Send
 function callSendAPI(senderPsid, response) {
 
-  // The page access token we have generated in your app settings
+  // O token de acesso à página que geramos nas configurações do seu aplicativo
   const PAGE_ACCESS_TOKEN = process.env.PAGE_ACCESS_TOKEN;
 
-  // Construct the message body
+  // Construir o corpo da mensagem
   let requestBody = {
     'recipient': {
       'id': senderPsid
@@ -162,7 +162,7 @@ function callSendAPI(senderPsid, response) {
     'message': response
   };
 
-  // Send the HTTP request to the Messenger Platform
+  // Envie a solicitação HTTP para a plataforma do Messenger
   request({
     'uri': 'https://graph.facebook.com/v2.6/me/messages',
     'qs': { 'access_token': PAGE_ACCESS_TOKEN },
