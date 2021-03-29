@@ -61,7 +61,7 @@ app.post('/webhook', (req, res) => {
 app.get('/webhook', (req, res) => {
 
     // Seu token de verificação. Deve ser uma string aleatória.
-    let VERIFY_TOKEN = "wiki24HP19972312" //process.env.VERIFY_TOKEN; 
+    let VERIFY_TOKEN = process.env.VERIFY_TOKEN; //"wiki24HP19972312"  
       
     // Analisa os parâmetros de consulta
     let mode = req.query['hub.mode'];
