@@ -1,33 +1,30 @@
 {
-  "name": "24wiki",
-  "version": "1.0.0",
-  "description": "Tudo em um lugar!",
+  "name": "bot-messenger",
+  "version": "0.0.1",
+  "description": "Informação é tudo...",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js"
-  },
-  "engines": {
-    "node": ">=10.x"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/HendaPaim/24wiki.git"
+    "start": "nodemon --exec babel-node src/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon --exec babel-node src/app.js"
   },
   "keywords": [
-    "messeger",
+    "messenger",
+    "bot",
     "webhook"
   ],
-  "author": "Henda Paim",
+  "author": "henda Paim",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/HendaPaim/24wiki/issues"
-  },
-  "homepage": "https://github.com/HendaPaim/24wiki#readme",
   "dependencies": {
     "body-parser": "^1.19.0",
     "dotenv": "^8.2.0",
+    "ejs": "^3.1.6",
     "express": "^4.17.1",
     "request": "^2.88.2"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "nodemon": "^2.0.7"
+  }
 }

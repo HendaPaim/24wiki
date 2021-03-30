@@ -1,0 +1,6 @@
+#Configurando as variaveis do aplicativo
+PORT=1997
+VERIFY_TOKEN=24libbottoken
+FB_PAGE_TOKEN=EAANQEAPWuK4BAO8yrwWWSZA0050CqJA7uvRQGsb8pEaNzF4Hy2daQSanwpjRRZC4pAsiI6qhLKO8DBSmcsjCciDpP14KmsQGQosnetRleantU7OSCWMbDf9m3b3Y8TubGVHeIIRmWUKe016scyMrUqMR3ooZAxTHjuyL4nVo37ujteJB5ZAQ
+
+
